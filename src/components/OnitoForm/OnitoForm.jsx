@@ -11,12 +11,25 @@ import {
     Button,
     NumberInput,
     NumberInputField,
+    useToast,
 } from '@chakra-ui/react'
 import { formValidation } from '../../validation/formValidation';
 import { yupResolver } from '@hookform/resolvers/yup';
+import axios from 'axios';
+
+const postFormData = async (data) => {
+    try {
+        let res = await axios.post("https://mocknine.onrender.com/users", data);
+        return res
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 const OnitoForm = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
+
+    const toast = useToast();
 
     const formDataSubmit = async (data) => {
         console.log(data);
@@ -29,8 +42,26 @@ const OnitoForm = () => {
             goiNum: data.goiNum,
         });
         console.log(isValid);
-        if(isValid){
-            
+        if (isValid) {
+            postFormData(data).then(res => {
+                if (res.status === 201) {
+                    toast({
+                        title: 'User Data added Successfully',
+                        description: "Please navigate to table page to see the table",
+                        status: 'success',
+                        duration: 2000,
+                        isClosable: true,
+                    })
+                }
+            });
+        } else {
+            toast({
+                title: 'Something went wrong!',
+                description: "Please check every input fields filled correctly",
+                status: 'error',
+                duration: 2000,
+                isClosable: true,
+            })
         }
     }
 
@@ -93,8 +124,8 @@ const OnitoForm = () => {
                     <Heading size={"md"} textDecoration={"underline"}> <li>Contact Details</li> </Heading>
                     <Box p={3} display={"flex"} justifyContent={"center"} alignItems={"center"} gap={3}>
                         <FormControl>
-                            <FormLabel>Address</FormLabel>
-                            <Input placeholder='Enter your Address' type='text' {...register("guardianName")} />
+                            <FormLabel>Guardian Name</FormLabel>
+                            <Input placeholder='Enter your Guardian Name' type='text' {...register("guardianName")} />
                         </FormControl>
                         <FormControl>
                             <FormLabel>Email</FormLabel>

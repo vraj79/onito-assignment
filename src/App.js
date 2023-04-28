@@ -3,6 +3,7 @@ import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import OnitoForm from './components/OnitoForm/OnitoForm';
 import { Route, Routes } from 'react-router-dom';
+import DataTable from './components/OnitoTable/DataTable';
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
       <Box paddingTop={"50px"}>
         <Routes>
           <Route path='/' element={<OnitoForm />} />
-          <Route path='/data' element={<h1>Data</h1>} />
+          <Route path='/table' element={<DataTable />} />
         </Routes>
       </Box>
     </div>

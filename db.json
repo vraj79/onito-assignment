@@ -1,0 +1,26 @@
+{
+  "users": [
+    {
+      "name": "Vishal Raj",
+      "age": "24",
+      "sex": "male",
+      "mobile": "7903467310",
+      "goi": "aadhar",
+      "goiNum": "789795481293",
+      "guardianName": "Dinesh Singh",
+      "email": "vishal.kumar4856@gmail.com",
+      "ecMobile": "7992375033",
+      "address": "VKS Colony. Road no 01.",
+      "state": "Bihar",
+      "city": "Gaya",
+      "country": "india",
+      "pinCode": "823001",
+      "occupation": "Web Developer",
+      "religion": "hindu",
+      "maritalStatus": "unmarried",
+      "bloodGroup": "O+",
+      "nationality": "india",
+      "id": 1
+    }
+  ]
+}

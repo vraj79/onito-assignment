@@ -14,7 +14,7 @@ import {
     useToast,
 } from '@chakra-ui/react'
 import { formValidation } from '../../validation/formValidation';
-import { yupResolver } from '@hookform/resolvers/yup';
+// import { yupResolver } from '@hookform/resolvers/yup';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom"
 

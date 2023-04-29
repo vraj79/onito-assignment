@@ -16,6 +16,7 @@ import {
 import { formValidation } from '../../validation/formValidation';
 import { yupResolver } from '@hookform/resolvers/yup';
 import axios from 'axios';
+import { useNavigate } from "react-router-dom"
 
 const postFormData = async (data) => {
     try {
@@ -30,6 +31,8 @@ const OnitoForm = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const toast = useToast();
+
+    const navigate = useNavigate()
 
     const formDataSubmit = async (data) => {
         console.log(data);
@@ -52,6 +55,9 @@ const OnitoForm = () => {
                         duration: 2000,
                         isClosable: true,
                     })
+                    setTimeout(() => {
+                        navigate("/table")
+                    }, 2000);
                 }
             });
         } else {
